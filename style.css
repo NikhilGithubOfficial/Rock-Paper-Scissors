@@ -35,8 +35,6 @@ h3 {
     display: inline-block;
     flex: auto;
     margin-top: 1em;
-    border: solid 2px #04ecec;
-    border-radius: 1rem;
     padding: 5px 5px 5px 15px;
 }
 
