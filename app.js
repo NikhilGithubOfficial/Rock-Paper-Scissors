@@ -48,7 +48,7 @@
 
 console.log("Hello World!");
 
-let scorePlayer=0, scoreComputer=0;
+let scorePlayer=0, scoreComputer=0 , scoreTie = 0;
 let gameState=0; // 0=No winner, 1=Someone Won
 
 const buttons = document.querySelectorAll("button");
@@ -57,14 +57,15 @@ const scoreboard = document.querySelector(".scoreboard");
 console.log(scoreboard);
 const computer = document.querySelector("#computer");
 const player = document.querySelector("#player");
+const tie = document.querySelector("#ties");
 const display = document.querySelector(".display");
 const main = document.querySelector(".main");
 const reset = document.createElement("button");
 reset.setAttribute("id", "reset");
 reset.style.cssText = 'color: #04ecec; background-color: #0b1111; margin-top: 1em;';
-reset.textContent = "RESET";
+reset.textContent = "Play Again";
 main.appendChild(reset);
-document.getElementById("reset").style.width="100px";
+document.getElementById("reset").style.width="120px";
 document.getElementById("reset").disabled = true;
 
 function computerPlay()
@@ -110,18 +111,22 @@ function game(id)
         scoreComputer++;
         computer.textContent = scoreComputer;
     }
+    else if(result == 0) {
+        scoreTie++;
+        tie.textContent = scoreTie;
+    }
     display.textContent = `Computer chose ${computerChoice} and you chose ${playerChoice}.`;
-    if(scorePlayer === 5 || scoreComputer === 5) {
+    if(scorePlayer === 5 || scoreComputer === 5 || scoreTie === 5) {
         gameState = 1;
         const result = document.createElement('div');
         if(scorePlayer === 5) {
-            result.textContent = "Congrats! You won the game";
+            result.textContent = "Congrats! You won!";
         }
         else if(scoreComputer === 5) {
-            result.textContent = "Computer overpowered you, better luck next time!";
+            result.textContent = "Better luck next time!";
         }
-        else {
-            result.textContent = "It's a draw!";
+        else if(scoreTie === 5) {
+            result.textContent = "It's a draw! Rematch?";
         }
         document.getElementById("reset").disabled = false;
         result.setAttribute("id", "result");
@@ -132,9 +137,11 @@ function game(id)
 function resetGame() {
     scorePlayer = 0;
     scoreComputer = 0;
+    scoreTie = 0;
     gameState = 0;
     player.textContent = scorePlayer;
     computer.textContent = scoreComputer;
+    tie.textContent = scoreTie;
     let garbage = scoreboard.removeChild(document.getElementById("result"));
     display.textContent = "";
     document.getElementById("reset").disabled = true;
