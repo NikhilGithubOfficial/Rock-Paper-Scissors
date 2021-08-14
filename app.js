@@ -61,9 +61,10 @@ const display = document.querySelector(".display");
 const main = document.querySelector(".main");
 const reset = document.createElement("button");
 reset.setAttribute("id", "reset");
-reset.style.cssText = 'color: #e63946; background-color: #a8dadc; margin-top: 1em;';
+reset.style.cssText = 'color: #04ecec; background-color: #0b1111; margin-top: 1em;';
 reset.textContent = "RESET";
 main.appendChild(reset);
+document.getElementById("reset").style.width="100px";
 document.getElementById("reset").disabled = true;
 
 function computerPlay()

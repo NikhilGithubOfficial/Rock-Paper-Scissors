@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: Andale Mono, monospace;
 }
 
 body {
@@ -14,6 +14,11 @@ h1 {
     margin: 1em;
 }
 
+h3 {
+    text-align: center;
+    margin: 1em;
+}
+
 .scoreboard {
     display: inline-block;
     padding: 2em;
@@ -21,8 +26,7 @@ h1 {
     background-color: #0b1111;
     color: #04ecec;
     border: solid 2px #30acac;
-    box-shadow: #040e0d;
-    -webkit-box-shadow: 10px 10px 5px #2d5555;
+    box-shadow: 0 0 10px #04ecec;
     padding: 5px 5px 5px 15px;
     width: 300px;
     }
@@ -30,41 +34,38 @@ h1 {
 
 .main {
     display: inline-block;
+    flex: auto;
     margin-top: 1em;
-    border: solid 2px #c5c6c7;
+    border: solid 2px #04ecec;
     border-radius: 1rem;
-    box-shadow: #117e73;
-    -webkit-box-shadow: 10px 10px 5px #c5c6c7;
     padding: 5px 5px 5px 15px;
-    width: 300px;
 }
 
 .display {
     margin-top: 2em;
-    background-color: #45a29e;
+    color: #04ecec;
 }
 
 button {
-    border-radius: 8%;
-    font-size: 600;
+    border-radius: 10%;
     font-weight: bold;
-    background-color: #3a9c97;
+    padding: 10px;
+    background-color: #0c0e0d;
     transition: all .5s ease;
 }
 
 button:hover {
-    background-color: #45a29e;
-    box-shadow: 0 0 3px #1b6662;
+    box-shadow: 0 0 20px #04ecec;
 }
 
 @media (max-width: 660px) {
 
-    .main {
-        width: 60%;
-        height: 50%;
+    .scoreboard {
+        width: 70%;
     }
 
     img {
-        width: 50%;
+        width: 100px;
+        height: fit-content;
     }
 }
